@@ -19,9 +19,6 @@ def rand_int():
 print(f"{rand_names()}.{rand_int()}@{rand_str()}.{rand_domains()}")
 print('_______________________________________________________')
 # # ###########################################2
-import random
-import string
-
 def rand_string(min_limit: int, max_limit: int):
     rand_str_1 = ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randint(min_limit, max_limit)))
     return rand_str_1
