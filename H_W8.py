@@ -3,22 +3,21 @@ import string
 
 names = ["Miller", "Attwood", "Backer", "Schwarz", "Pinkman", "Wait", "Black", "Royan", "Zitter"]
 domains = ["net", "kh", "ru", "info", "edu", "org", "com", "ua"]
-def rand_names():
-    a = random.choice(names)
-    return a
-def rand_domains():
-    b = random.choice(domains)
-    return b
-def rand_str():
-    c = ''.join(random.choice(string.ascii_letters) for _ in range(0, random.randint(5, 7)))
-    return c
-def rand_int():
-    d = random.randint(100, 999)
-    return d
 
-print(f"{rand_names()}.{rand_int()}@{rand_str()}.{rand_domains()}")
+
+def rand_str():
+    name = random.choice(names)
+    domen = random.choice(domains)
+    str_ra = "".join(random.choice(string.ascii_lowercase) for _ in range(0, random.randint(5, 7)))
+    int_ra = random.randint(100, 999)
+    return f"{name}.{int_ra}@{str_ra}.{domen}"
+
+
+print(rand_str())
 print('_______________________________________________________')
+
 # # ###########################################2
+
 def rand_string(min_limit: int, max_limit: int):
     rand_str_1 = ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randint(min_limit, max_limit)))
     return rand_str_1
@@ -28,6 +27,7 @@ max_limit = 121
 
 res = rand_string(min_limit, max_limit)
 # ###########################################3
+
 def create_spaces(res):
     index = 0
     rand_str_to_list = list(res)
