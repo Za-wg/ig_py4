@@ -45,9 +45,13 @@ def random_dict():
     return {random_key(): random_value() for _ in range(random.randint(5, 20))}
 
 
-with open('H_W9.json', 'w') as f:
-    json.dump(random_dict(), f)
-
-
+a_dict = random_dict()
 pprint.pprint(random_dict())
 
+with open('H_W9.json') as f:
+    data = json.load(f)
+
+data.update(a_dict)
+
+with open('H_W9.json', 'w') as f:
+    json.dump(data, f)
