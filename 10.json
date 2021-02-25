@@ -1,0 +1,138 @@
+{
+	"solar_system": [
+		{
+			"Stars": [
+				{
+					"name": "Sun",
+					"age": "5 billion years",
+					"temp": "15 million degrees Celsius",
+					"diameter": "1,392,000 km"
+				}
+			]
+		},
+		{
+			"planets": [
+				{
+					"name": "Mercury",
+					"diameter": "4878 km",
+					"temp": "350 during the day and -170 at night",
+					"turn": "58 days",
+					"atm": "very rarefied, helium",
+					"sputnik": 0
+				},
+				{
+					"name": "Venus",
+					"diameter": "12104 km",
+					"temp": "480 degrees",
+					"turn": "243 days",
+					"atm": "dense, mainly carbon dioxide",
+					"sputnik": 0
+				},
+				{
+					"name": "Earth",
+					"diameter": "12756 km",
+					"temp": "22 degrees",
+					"turn": "23 hours 56 mins",
+					"atm": "mainly nitrogen and oxygen",
+					"sputnik": 1
+				},
+				{
+					"name": "Mars",
+					"diameter": "6794 km",
+					"temp": "-23 degrees",
+					"turn": "24 hours 37 mins",
+					"atm": "rarefied, mainly carbon dioxide",
+					"sputnik": 2
+				},
+				{
+					"name": "Jupiter",
+					"diameter": "143884 km",
+					"temp": "-150 degrees",
+					"turn": "9 hours 55 mins",
+					"atm": "mostly hydrogen and helium",
+					"sputnik": "16 + rings"
+				},
+				{
+					"name": "Saturn",
+					"diameter": "120536 km",
+					"temp": "-180 degrees",
+					"turn": "10 hours 14 mins",
+					"atm": "mostly hydrogen and helium",
+					"sputnik": "18 + rings"
+				},
+				{
+					"name": "Uranus",
+					"diameter": "51118 km",
+					"temp": "-214 degrees",
+					"turn": "17 hours 14 mins",
+					"atm": "mostly hydrogen and helium",
+					"sputnik": "15 + rings"
+				},
+				{
+					"name": "Neptune",
+					"diameter": "50538 km",
+					"temp": "-220 degrees",
+					"turn": "16 hours 7 mins",
+					"atm": "mostly hydrogen and helium",
+					"sputnik": 8
+				}
+			]
+		},
+		{
+			"dwarfplanets": [
+				{
+					"name": "Pluto",
+					"diameter": "2376,6 km",
+					"temp": "-223 degrees",
+					"turn": "153 hours 30 mins",
+					"atm": "mostly hydrogen and helium",
+					"sputnik": 5
+				},
+				{
+					"name": "Makemake"
+				},
+				{
+					"name": "Haumea"
+				},
+				{
+					"name": "Ceres"
+				},
+				{
+					"name": "Eris"
+				}
+			]
+		},
+		{
+			"Sputnik": [
+				{
+					"name": "Moon",
+					"pln": "Earth"
+				},
+				{
+					"name": "Deimos",
+					"pln": "Mars"
+				},
+				{
+					"name": "Io",
+					"pln": "Jupiter"
+				},
+				{
+					"name": "Titan",
+					"pln": "Saturn"
+				},
+				{
+					"name": "Titania",
+					"pln": "Uranus"
+				},
+				{
+					"name": "Triton",
+					"pln": "Neptune"
+				},
+				{
+					"name": "Charon",
+					"pln": "Pluto"
+				}
+			]
+		}
+	]
+}
