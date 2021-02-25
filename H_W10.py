@@ -18,12 +18,17 @@ def read_file(file_path):
             for line in txt_file.readlines():
                 data.append(line)
             file_path.close()
+        else:
+            print("Unsupported file format")
+    return file_path
 # ###################################2
 
 
+file_path = '/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/Py9.json'
+
+
 def file_write(file_path, text):
-    file_path = '/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/H_W10'
-    with open(file_path, "w+") as f:
+    with open(file_path, "w") as my_file:
         if ".json" in file_path:
             text = {"People": [
                 {
@@ -35,17 +40,17 @@ def file_write(file_path, text):
                     "age": 19
                 }
                     ]}
-            json.dump(text, f, indent=2)
+            json.dump(text, my_file, indent=2)
         elif ".csv" in file_path:
             names = ["Имя", "Возраст"]
-            file_writer = csv.DictWriter(f, delimiter=",", lineterminator="\r", fieldnames=names)
+            file_writer = csv.DictWriter(my_file, delimiter=",", lineterminator="\r", fieldnames=names)
             file_writer.writeheader()
             file_writer.writerow({"Имя": "Саша", "Возраст": "6"})
             file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
             file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
         elif ".txt" in file_path:
             text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            f.write(text)
+            my_file.write(text)
         else:
             print("Unsupported file format")
-    return text
+    return my_file
