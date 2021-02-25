@@ -1,7 +1,7 @@
-import os
 import json
 import random
 import string
+# #####################################1
 
 
 def read_txt():
@@ -22,13 +22,15 @@ data = read_txt()
 data = get_last_name(data)
 
 print(data)
-# #####################################2
+
+# ############################################2-3
+
+file_path = '/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/H_W9.json'
 
 
-def add_last_name_in_file():
-    file = generate_and_write_json()
-    with open(file, "w", encoding="utf-8") as my_file:
-        json.dump(data, my_file, indent=2)
+def generate_and_write_json(file_path):
+    with open(file_path, 'w') as my_file:
+        json.dump(data, my_file, indent= 2)
     return my_file
 
 
@@ -38,12 +40,12 @@ def random_key():
 
 def random_value():
     value = random.choice([int, bool, float])
-        if value == int:
-            random.randint(-100, 100)
-        elif value == float:
-            random.uniform(0, 1)
-        elif value == bool:
-            random.choice([False, True])
+    if value == int:
+        random.randint(-100, 100)
+    elif value == float:
+        random.uniform(0, 1)
+    elif value == bool:
+        random.choice([False, True])
     return value
 
 
@@ -52,4 +54,3 @@ def random_dict():
 
 
 data = random_dict()
-
