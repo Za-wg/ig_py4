@@ -1,10 +1,35 @@
 import json
 import random
 import string
+# #####################################1
 
 
-def add_last_name_in_file():
-    with open('/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/H_W9.json', 'w') as my_file:
+def read_txt():
+    with open("names.txt", "r") as names:
+        data = names.read().split('\n')
+        for i, item in enumerate(data):
+            if item != '\n':
+                data[i] = item.split('\t')
+        return data
+
+
+def get_last_name(data):
+    last_name_list = [lists[1] for lists in data]
+    return last_name_list
+
+
+data = read_txt()
+data = get_last_name(data)
+
+print(data)
+
+# ############################################2-3
+
+file_path = '/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/H_W9.json'
+
+
+def generate_and_write_json(file_path):
+    with open(file_path, 'w') as my_file:
         json.dump(data, my_file, indent=2)
     return my_file
 
@@ -29,24 +54,3 @@ def random_dict():
 
 
 data = random_dict()
-# #####################################1
-
-
-def read_txt():
-    with open("names.txt", "r") as names:
-        data = names.read().split('\n')
-        for i, item in enumerate(data):
-            if item != '\n':
-                data[i] = item.split('\t')
-        return data
-
-
-def get_last_name(data):
-    last_name_list = [lists[1] for lists in data]
-    return last_name_list
-
-
-data = read_txt()
-data = get_last_name(data)
-
-print(data)
