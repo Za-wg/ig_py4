@@ -29,7 +29,7 @@ def read_txt_file(file):
     data = []
     for line in file.readlines():
         data.append(line)
-    return file_path
+    return data
 
 # ###################################2
 
