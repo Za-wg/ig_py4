@@ -12,6 +12,7 @@ def choose_format_file_reading(file_path):
             read_txt_file(file)
         else:
             print("Unsupported file format")
+    return file
 
 
 def read_json_file(file):
@@ -46,6 +47,7 @@ def choose_format_file_for_write(file_path):
             file_write_txt(myfile)
         else:
             print("Unsupported file format")
+    return myfile
 
 
 def file_write_json(myfile):
