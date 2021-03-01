@@ -27,13 +27,8 @@ myData = choise_random_int(3)
 
 
 def without_author(myData):
-    hell = []
-    for key in myData:
-        key_name = myData.get("quoteAuthor")
-        if key in key_name != " ":
-            hell.append(key)
-    return hell
-
+    om = [myData.get(key) for key in ('quoteText', 'quoteAuthor', 'quoteLink')]
+    return om
 
 list_ = without_author
 
