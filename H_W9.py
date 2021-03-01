@@ -7,21 +7,13 @@ import string
 # Фамилия находится всегда на одной и той же позиции в строке.
 
 def read_txt():
-    with open("names.txt", "r") as names:
-        data = names.read().split('\n')
-        for i, item in enumerate(data):
-            if item != '\n':
-                data[i] = item.split('\t')
-        return data
-
-
-def get_last_name(data):
-    last_name_list = [lists[1] for lists in data]
-    return last_name_list
+    with open("names.txt", "r") as file:
+        for i in file:
+            surname = print(i.split()[1])
+        return surname
 
 
 data = read_txt()
-data = get_last_name(data)
 
 print(data)
 
