@@ -2,17 +2,20 @@ import json
 import csv
 
 
-def choose_format_file_reading(file_path):
+def file_reading(file_path):
     with open(file_path, 'r') as file:
-        if ".json" in file_path:
-            read_json_file(file)
-        elif ".cvs" in file_path:
-            read_cvs_file(file)
-        elif ".txt" in file_path:
-            read_txt_file(file)
-        else:
-            print("Unsupported file format")
-    return file
+        return file
+
+
+def choose_format_file(file):
+    if ".json" in file_path:
+        read_json_file(file)
+    elif ".cvs" in file_path:
+        read_cvs_file(file)
+    elif ".txt" in file_path:
+        read_txt_file(file)
+    else:
+        print("Unsupported file format")
 
 
 def read_json_file(file):
@@ -37,17 +40,20 @@ def read_txt_file(file):
 file_path = '/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/Py9.json'
 
 
-def choose_format_file_for_write(file_path):
+def file_write(file_path):
     with open(file_path, 'w') as myfile:
-        if ".json" in file_path:
-            file_write_json(myfile)
-        elif ".cvs" in file_path:
-            file_write_cvs(myfile)
-        elif ".txt" in file_path:
-            file_write_txt(myfile)
-        else:
-            print("Unsupported file format")
-    return myfile
+        return myfile
+
+
+def format_file(myfile):
+    if ".json" in file_path:
+        file_write_json(myfile)
+    elif ".cvs" in file_path:
+        file_write_cvs(myfile)
+    elif ".txt" in file_path:
+        file_write_txt(myfile)
+    else:
+        print("Unsupported file format")
 
 
 def file_write_json(myfile):
