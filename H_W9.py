@@ -1,6 +1,7 @@
 import json
 import random
 import string
+
 # #####################################1
 # Считать данные из файла names.txt и поместить в список только фамилии из файла.
 # Каждая строка файла содержит номер, фамилию, страну, некоторое число (таблица взята с википедии).
@@ -9,7 +10,7 @@ import string
 def read_txt():
     with open("names.txt", "r") as file:
         for i in file:
-            surname = print(i.split()[1])
+            surname = i.split()[1]
         return surname
 
 
