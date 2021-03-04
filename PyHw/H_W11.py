@@ -15,9 +15,10 @@ def read_json_file(file_path):
 
 def sort_by_surname(x):
     sotr = x['name'].split(" ")[-1]
-    sort_surname = sorted(sotr, key=sotr)
-    return sort_surname
+    return sort
 
+sort_surname = sorted(sotr, key=sort_by_surname)
+                      
 # Написать функцию сортировки по дате смерти из поля "years"
 
 
@@ -27,21 +28,13 @@ def sort_by_death(a: str) -> int:
     return year
 
 
-res = sorted(file_path, key=lambda x: sort_by_death(x["years"]))
+res = sorted(file_path, key=sort_by_death)
 
 # Написать функцию сортировки по количеству слов в поле "text"
 
 
-def sort_key_by_name(sort_dict):
-    value = sort_dict["text"]
-    return value
-
-
-def sort_key_by_len_name(sort_dict):
-    return len(sort_dict["text"])
-
-
-result = sorted(file_path, key=sort_key_by_len_name)
-print(result)
+def sort_by_len(file):
+    lines = [sorted(line.rstrip().split(), key=len) for line in file]
+    return lines
 
 
