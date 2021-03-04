@@ -2,11 +2,6 @@ import json
 import csv
 
 
-def file_reading(file_path):
-    with open(file_path, 'r') as file:
-        return file
-
-
 def choose_format_file(file):
     if ".json" in file_path:
         read_json_file(file)
@@ -18,20 +13,23 @@ def choose_format_file(file):
         print("Unsupported file format")
 
 
-def read_json_file(file):
-    json.load(file)
+def read_json_file(file_path):
+    with open(file_path, 'r') as file:
+        json.load(file)
     return file
 
 
-def read_cvs_file(file):
-    csv.reader(file)
+def read_cvs_file(file_path):
+    with open(file_path, 'r') as file:
+        csv.reader(file)
     return file
 
 
-def read_txt_file(file):
-    data = []
-    for line in file.readlines():
-        data.append(line)
+def read_txt_file(file_path):
+    with open(file_path, 'r') as file:
+        data = []
+        for line in file.readlines():
+            data.append(line)
     return data
 
 # ###################################2
