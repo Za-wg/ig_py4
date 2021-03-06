@@ -34,7 +34,11 @@ res = sorted(file_path, key=sort_by_death)
 
 
 def sort_by_len(file):
-    lines = [sorted(line.rstrip().split(), key=len) for line in file]
-    return lines
+    for line in file:
+        lst = line.split()
+        return len(lst)
+
+
+ser = sorted(file_path, key=sort_by_len)
 
 
