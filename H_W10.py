@@ -1,14 +1,16 @@
 import json
 import csv
 
+file_path = "/Users/irinagolakova/PycharmProjects/ig_py4/authors.json"
 
-def choose_format_file(file):
-    if ".json" in file_path:
+
+def read_file_format(file):
+    if file_path.endswith(".json"):
         read_json_file(file)
-    elif ".cvs" in file_path:
-        read_cvs_file(file)
-    elif ".txt" in file_path:
+    elif file_path.endswith(".txt"):
         read_txt_file(file)
+    elif file_path.endswith(".cvs"):
+        read_cvs_file(file)
     else:
         print("Unsupported file format")
 
@@ -32,10 +34,11 @@ def read_txt_file(file_path):
             data.append(line)
     return data
 
+
+read_file_format()
+
+
 # ###################################2
-
-
-file_path = '/Users/irinagolakova/PycharmProjects/ig_py4/PyHw/Py9.json'
 
 
 def file_write(file_path):
@@ -43,40 +46,43 @@ def file_write(file_path):
         return myfile
 
 
-def format_file(myfile):
-    if ".json" in file_path:
+def file_extension(myfile):
+    if file_path.endswith(".json"):
         file_write_json(myfile)
-    elif ".cvs" in file_path:
-        file_write_cvs(myfile)
-    elif ".txt" in file_path:
+    elif file_path.endswith(".txt"):
         file_write_txt(myfile)
+    elif file_path.endswith(".cvs"):
+        file_write_cvs(myfile)
     else:
         print("Unsupported file format")
 
 
 def file_write_json(myfile):
-        text = {"People": [
-            {
-                "name": "Jhon",
-                "age": 21
-            },
-            {
-                "name": "Ruta",
-                "age": 19
-            }
-                ]}
-        json.dump(text, myfile, indent=2)
+    text = {"People": [
+        {
+            "name": "Jhon",
+            "age": 21
+        },
+        {
+            "name": "Ruta",
+            "age": 19
+        }
+    ]}
+    json.dump(text, myfile, indent=2)
 
 
 def file_write_cvs(myfile):
-        names = ["Имя", "Возраст"]
-        file_writer = csv.DictWriter(myfile, delimiter=",", lineterminator="\r", fieldnames=names)
-        file_writer.writeheader()
-        file_writer.writerow({"Имя": "Саша", "Возраст": "6"})
-        file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
-        file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
+    names = ["Имя", "Возраст"]
+    file_writer = csv.DictWriter(myfile, delimiter=",", lineterminator="\r", fieldnames=names)
+    file_writer.writeheader()
+    file_writer.writerow({"Имя": "Саша", "Возраст": "6"})
+    file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
+    file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
 
 
 def file_write_txt(myfile):
-        text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-        myfile.write(text)
+    text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    myfile.write(text)
+
+
+file_extension()
