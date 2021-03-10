@@ -1,53 +1,47 @@
+import random
 import requests
 import csv
 import json
 
 # ####################################1
-FILE_PATH = "/Users/irinagolakova/PycharmProjects/ig_py4/FileCvs.cvs"
+FILE_NAME = "Wbnfns.csv"
 url = "http://api.forismatic.com/api/1.0/"
 
 
-# Написать функцию, которая принимает в виде параметра целое число - количество цитат
+def choise_random_int(my_quote):
+    unique_quotes = []
+    params = {
+        "method": "getQuote",
+        "format": "json",
+        "key": random.randint(0, 99999),
+        "lang": "ru"
+    }
 
-def choise_random_int(int):
-    for number in range(int):
-        params = {"method": "getQuote",
-                  "format": "json",
-                  "key": number,
-                  "lang": "ru"}
+    while len(unique_quotes) < my_quote:
         response = requests.get(url, params=params)
         result = response.json()
-        for key in result:
-            print(f"{key} ------ {result[key]}")
+
+        if not result['quoteAuthor']:
+            continue
+
+        if result['quoteText'] not in [q['quoteText'] for q in unique_quotes]:
+            unique_quotes.append(result)
+
+    unique_quotes = sorted(unique_quotes, key=lambda k: k['quoteAuthor'])
+
+    return unique_quotes
 
 
-myData = choise_random_int(3)
-
-# !!! Если автор не указан, цитату не брать !!!
+hell = choise_random_int(3)
 
 
-def without_author(myData):
-    om = [myData.get(key) for key in ('quoteText', 'quoteAuthor', 'quoteLink')]
-    return om
-
-list_ = without_author
-
-# !!! Cортировать список в алфавитном порядке !!!
-
-
-def sortByAlphabet(quoteAuthor):
-    return quoteAuthor[0]  # Ключом является первый символ в каждой строке, сортируем по нему
-
-
-newList = sorted(list_, key=sortByAlphabet)  # Каждый элемент передается в качестве параметра функции
-
-
-# сохранить их в csv файл
-
-def save_in_file_cvs(FILE_PATH):
+def save_in_csv_file(FILE_PATH):
     with open(FILE_PATH, "w", encoding="UTF-8"):
         writer = csv.writer(FILE_PATH)
-        writer.writerows(newList)
+        writer.writerows(hell)
+
+
+print("First task completed")
 
 # ######################################2
 
