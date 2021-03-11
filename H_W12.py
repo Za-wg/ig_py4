@@ -43,15 +43,13 @@ def save_in_csv_file(FILE_PATH):
 
 print("First task completed")
 
-# ######################################2
+# ####################################2
+
+filename = "authors.txt"
+file_path = "/Users/irinagolakova/PycharmProjects/ig_py4/12json.json"
 
 
-file_path_json = "/Users/irinagolakova/PycharmProjects/ig_py4/authors.json"
-
-
-# 2.1 написать функцию, которая считывает данные из этого файла
-
-def read_txt(filename="authors.txt"):
+def read_txt():
     with open(filename, 'r') as file:
         data = []
         for line in file.readlines():
@@ -60,24 +58,20 @@ def read_txt(filename="authors.txt"):
     return data
 
 
-list_name = read_txt()
+def main():
+    for line in read_txt():
+        dats, info = line.split('-')
+        name = info.split(',')[0]
+        dats = '/'.join(dats.split())
+        print({'name': name, 'dats': dats})
 
 
-# Написать функцию, которая принимает список строк полученной в пункте 2.1, и возвращает список словарей
-
-def parse(line):
-    date, info = line.split('-')
-    name = info.split(',')[0]
-    date = '/'.join(date.split())
-    return {'name': name, 'date': date}
+main()
 
 
-two_punkt_two = parse
-
-
-# Написать функцию, которая сохраняет результат пункта 2 в json файл
-
-def write_in_json_file(file_path):
+def write_in_json_file():
     with open(file_path, "w") as my_file:
-        text = two_punkt_two
+        text = main
         json.dump(text, my_file, indent=2)
+
+
