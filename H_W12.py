@@ -4,7 +4,6 @@ import csv
 import json
 
 # ####################################1
-FILE_NAME = "Wbnfns.csv"
 url = "http://api.forismatic.com/api/1.0/"
 
 
@@ -35,18 +34,20 @@ def choise_random_int(my_quote):
 hell = choise_random_int(3)
 
 
-def save_in_csv_file(FILE_PATH):
-    with open(FILE_PATH, "w", encoding="UTF-8"):
-        writer = csv.writer(FILE_PATH)
+def save_in_csv_file(FILE_PATH="Wbnfns.csv"):
+    with open(FILE_PATH, "w", encoding="UTF-8") as f:
+        writer = csv.writer(f)
         writer.writerows(hell)
 
+
+save_in_csv_file()
 
 print("First task completed")
 
 # ####################################2
 
 filename = "authors.txt"
-file_path = "/Users/irinagolakova/PycharmProjects/ig_py4/12json.json"
+file_path = "/Users/irinagolakova/PycharmProjects/ig_py4/eliFFile.json"
 
 
 def read_txt():
@@ -58,20 +59,27 @@ def read_txt():
     return data
 
 
+read_txt()
+
+
 def main():
+    result_data = []
     for line in read_txt():
-        dats, info = line.split('-')
-        name = info.split(',')[0]
-        dats = '/'.join(dats.split())
-        print({'name': name, 'dats': dats})
+        date, info = line.split(sep="-", maxsplit=1)
+        name = info.split("'s ")[0]
+        date = '/'.join(date.split())
+        result_data.append({'name': name, 'date': date})
+    return result_data
 
 
-main()
+res = main()
 
 
-def write_in_json_file():
+def write_in_json_file(data):
     with open(file_path, "w") as my_file:
-        text = main
-        json.dump(text, my_file, indent=2)
+        json.dump(data, my_file, indent=2)
 
 
+write_in_json_file(res)
+
+print("The second task is completed")
